@@ -70,7 +70,7 @@ def convert_xml_to_json(input_path, output_path, difficult):
     for file in onlyfiles:
         outfile = join(output_path, os.path.basename(file))
         outfile = os.path.splitext(outfile)[0] + '.json'
-        trimmed = parse_single_file(join(input_path, file), difficult)
+        trimmed = parse_single_file(file, difficult)
         if validate_metadata(trimmed, file):
             result = json.dumps(trimmed, sort_keys=True, indent=4, separators=(',', ': '))
             f = open(outfile, 'w')
